@@ -11,4 +11,9 @@ class purchase extends Model
     protected $fillable=[
         'userId','billNo','qty','idcsd','userInsert','paystatus','status','userUpdate','transactionNo','price'
     ];
+
+    public function product()
+    {
+        return $this->belongsToMany(ColorsOriductsSizeSizedetails::class,'id','idcsd');
+    }
 }

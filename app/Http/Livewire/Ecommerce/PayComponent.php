@@ -8,6 +8,6 @@ class PayComponent extends Component
 {
     public function render()
     {
-        return view('livewire.ecommerce.pay-component');
+        return view('livewire.ecommerce.pay-component')->layout('layouts.base');
     }
 }

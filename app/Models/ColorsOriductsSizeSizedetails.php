@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class ColorsOriductsSizeSizedetails extends Pivot
 {
     protected $table='colors_products_sizes_sizedetails';
-    protected $fillable=['products_id','sizes_id','sizedetails_id','colors_id','qty','userInsert','userupdate'];
+    protected $fillable=['id','products_id','sizes_id','sizedetails_id','colors_id','qty','userInsert','userupdate'];
 
     public function size_name()
     {
@@ -28,5 +28,10 @@ class ColorsOriductsSizeSizedetails extends Pivot
     {
         $this->primaryKey='colors_id';
         return $this->belongsTo(colors::class,'id');
+    }
+
+    public function purchase()
+    {
+        return $this->belongsTo(purchase::class,'idcsd','id');
     }
 }
