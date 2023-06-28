@@ -62,13 +62,25 @@
                 <a href="search.html"><i class="iconly-Search icli"></i></a>
             </li>
             <li>
-                <a href="notification.html"><i class="iconly-Notification icli"></i></a>
+                @php($billQty=\App\Models\purchase::where('userId',\Illuminate\Support\Facades\Auth::user()->id)->count('id'))
+                <a href="{{route('notification')}}"
+                   @if($billQty > 0) style="color: red;" @endif
+                ><i class="iconly-Notification icli
+           @if($billQty > 0)  text-danger @endif
+                        "></i>
+                    @if($billQty > 0) {{$billQty}} @endif
+                </a>
             </li>
             <li>
                 <a href="wishlist.html"><i class="iconly-Heart icli"></i></a>
             </li>
             <li>
-                <a href="{{route('cart')}}" ><i class="iconly-Buy icli"></i><span class="bg-danger rounded-circle border-warning" ><span class="text-white text-bold">{{\Gloudemans\Shoppingcart\Facades\Cart::count()}}</span> </span></a>
+                @php($shopCounter=\Gloudemans\Shoppingcart\Facades\Cart::count())
+                <a href="{{route('cart')}}"
+                   @if($shopCounter > 0) style="color: red;"@endif
+                ><i class="iconly-Buy icli
+          @if($shopCounter > 0) text-danger @endif
+                        "></i>{{$shopCounter}} </a>
             </li>
         </ul>
     </div>
@@ -252,7 +264,11 @@
 
 <!-- timer js-->
 <script src="{{asset('assets/js/timer.js')}}"></script>
+<!-- Filter js -->
+<script src="{{asset('assets/js/filter.js')}}"></script>
 
+<!-- script js -->
+<script src="{{asset('assets/js/script.js')}}"></script>
 <!-- offcanvas modal js -->
 <script src="{{asset('assets/js/offcanvas-popup.js')}}"></script>
 

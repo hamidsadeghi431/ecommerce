@@ -52,6 +52,6 @@ class MainPageComponent extends Component
             $cnt=products::count('id');
         }
 
-        return view('livewire.ecommerce.products.main-page-component',get_defined_vars())->layout('layouts.base1');
+        return view('livewire.ecommerce.products.main-page-component',get_defined_vars())->layout('layouts.base');
     }
 }

@@ -16,8 +16,12 @@
                     <a href="wishlist.html"><i class="iconly-Heart icli"></i></a>
                 </li>
                 <li>
-                    <a href="cart.html"><i class="iconly-Buy icli"></i></a>
-                </li>
+                    @php($shopCounter=\Gloudemans\Shoppingcart\Facades\Cart::count())
+                    <a href="{{route('cart')}}"
+                       @if($shopCounter > 0) style="color: red;"@endif
+                    ><i class="iconly-Buy icli
+          @if($shopCounter > 0) text-danger @endif
+                            "></i>{{$shopCounter}} </a>                </li>
             </ul>
         </div>
     </header>

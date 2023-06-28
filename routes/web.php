@@ -33,7 +33,7 @@ Route::get('/pay/{id?}/{Authority?}/{code_pe?}/{status?}/{m?}',\App\Http\Livewir
 
 //For USR
 Route::middleware(['auth:sanctum','verified'])->group(function(){
-    Route::get('/user/dashboard',\App\Http\Livewire\User\UserDashboardComponent::class)->name('userdashboard');
+    Route::get('/user',\App\Http\Livewire\User\UserDashboardComponent::class)->name('userdashboard');
 
 });
 

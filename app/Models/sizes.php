@@ -13,6 +13,5 @@ class sizes extends Model
     public function cpsds()
     {
         $this->primaryKey='sizeId';//        return $this->hasMany(ColorsOriductsSizeSizedetails::class);
-
     }
 }

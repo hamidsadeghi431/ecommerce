@@ -5,8 +5,8 @@
             <div class="media">
                 <img src="assets/images/user/1.png" class="img-fluid" alt="">
                 <div class="media-body">
-                    <h2>پیج ترنر</h2>
-                    <h6>paigeturner@gmail.com</h6>
+                    <h2>{{\Illuminate\Support\Facades\Auth::user()->name}}</h2>
+                    <h6>{{\Illuminate\Support\Facades\Auth::user()->mobile}}</h6>
                     <a href="profile-setting.html" class="edit-btn">ویرایش</a>
                 </div>
             </div>
@@ -14,71 +14,112 @@
     </section>
     <!-- profile section end -->
 
+    <!-- section start -->
+    <section class="px-15 classic-accordion top-space pt-0">
+        <h2 class="page-title">تنظیمات پروفایل</h2>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="iconly-Wallet icli"></i>
+                        پرداخت
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <a href="saved-cards.html">
+                            <div class="content">
+                                <h4>پرداخت</h4>
+                                <h6>کارت های ذخیره شده، کیف پول</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          آدرس ذخیره شده
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- delivery option section start -->
+                        <section class="top-space px-15 pt-0">
+                            <div class="delivery-option-section">
+                                <ul>
+                                    <li>
+                                        <div class="check-box">
+                                            <div class="form-check d-flex ps-0">
+                                                <input checked class="radio_animated" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1"></label>
+                                                <div>
+                                                    <h4 class="name">خیابان 9 غربی</h4>
+                                                    <div class="addess">
+                                                        <h4>محله 9 شرق, </h4>
+                                                        <h4>ایران ، استان تهران ، میدان آزادی</h4>
+                                                        <h4>بلوار غربی</h4>
+                                                    </div>
+                                                    <h4>شماره تلفن: 903-239-1284</h4>
+                                                    <h6 class="label">خانه</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons l-15">
+                                            <a href="#">حذف</a>
+                                            <a href="#">ویرایش</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="check-box">
+                                            <div class="form-check d-flex ps-0">
+                                                <input class=" radio_animated" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                <label class="form-check-label" for="flexRadioDefault2"></label>
+                                                <div>
+                                                    <h4 class="name">خیابان 9 غربی</h4>
+                                                    <div class="addess">
+                                                        <h4>محله 9 شرق, </h4>
+                                                        <h4>ایران ، استان تهران ، میدان آزادی</h4>
+                                                        <h4>بلوار غربی</h4>
+                                                    </div>
+                                                    <h4>شماره تلفن: 903-239-1284</h4>
+                                                    <h6 class="label">دفتر</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons l-15">
+                                            <a href="#">حذف</a>
+                                            <a href="#">ویرایش</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="new-address.html" class="btn btn-outline text-capitalize w-100 mt-3">افزودن آدرس جدید</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        آیتم آکاردئون #3
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است.لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است.لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- link section start -->
     <div class="sidebar-content">
         <ul class="link-section">
-            <li>
-                <div>
-                    <i class="iconly-Setting icli"></i>
-                    <div class="content toggle-sec w-100">
-                        <div>
-                            <h4>مد تاریک</h4>
-                        </div>
-                        <div class="button toggle-btn ms-auto">
-                            <input id="darkButton" type="checkbox" class="checkbox">
-                            <div class="knobs">
-                                <span></span>
-                            </div>
-                            <div class="layer"></div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <i class="iconly-Setting icli"></i>
-                    <div class="content toggle-sec w-100">
-                        <div>
-                            <h4>RTL</h4>
-                        </div>
-                        <div class="button toggle-btn ms-auto">
-                            <input id="rtlButton" type="checkbox" class="checkbox">
-                            <div class="knobs">
-                                <span></span>
-                            </div>
-                            <div class="layer"></div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="pages.html">
-                    <i class="iconly-Paper icli"></i>
-                    <div class="content">
-                        <h4>صفحات</h4>
-                        <h6>سفارشات در حال انجام، سفارشات اخیر..</h6>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="order-history.html">
-                    <i class="iconly-Document icli"></i>
-                    <div class="content">
-                        <h4>سفارشات</h4>
-                        <h6>سفارشات در حال انجام، سفارشات اخیر..</h6>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="wishlist.html">
-                    <i class="iconly-Heart icli"></i>
-                    <div class="content">
-                        <h4>لیست خواسته های شما</h4>
-                        <h6>محصولات ذخیره شما</h6>
-                    </div>
-                </a>
-            </li>
+
+
+
             <li>
                 <a href="saved-cards.html">
                     <i class="iconly-Wallet icli"></i>
@@ -98,15 +139,6 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img src="assets/images/flag.png" class="img-fluid" alt="">
-                    <div class="content">
-                        <h4>زبان</h4>
-                        <h6>زبان خود را در اینجا انتخاب کنید..</h6>
-                    </div>
-                </a>
-            </li>
-            <li>
                 <a href="notification.html">
                     <i class="iconly-Notification icli"></i>
                     <div class="content">
@@ -115,15 +147,7 @@
                     </div>
                 </a>
             </li>
-            <li>
-                <a href="settings.html">
-                    <i class="iconly-Setting icli"></i>
-                    <div class="content">
-                        <h4>تنظیمات</h4>
-                        <h6>حالت تاریک، راستچین، اعلان</h6>
-                    </div>
-                </a>
-            </li>
+
             <li>
                 <a href="profile-setting.html">
                     <i class="iconly-Password icli"></i>

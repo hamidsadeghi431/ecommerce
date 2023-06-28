@@ -22,86 +22,76 @@
 
         <div class="px-15">
             <ul class="filter-title" id="filterOptions">
-                <li class="active"><a href="#" class="all">همه</a></li>
-                <li><a href="#" class="order">اطلاعات سفارش</a></li>
+                <li class="active"><a href="#" class="order">اطلاعات سفارش</a></li>
                 <li><a href="#" class="offers">تخفیف</a></li>
-                <li><a href="#" class="payment">پرداخت</a></li>
-                <li><a href="#" class="return">برگشت</a></li>
+                <li><a href="#" class="payment">پرداخت موفق</a></li>
+                <li><a href="#" class="return">پرداخت ناموفق</a></li>
             </ul>
 
             <div id="ourHolder" class="filter-content">
+                @if($OrderData)
+                    @foreach($OrderData as $item)
                 <div class="item order">
-                    <div class="media">
-                        <img src="assets/images/notification/1.jpg" class="img-fluid" alt="">
-                        <div class="media-body">
-                            <h4>فروش ویژه روز برند!! عجله کنید، پیشنهاد مدت محدود!</h4>
-                            <h6 class="content-color">10 دی 1401</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="item offers">
                     <div class="media">
                         <img src="assets/images/notification/2.jpg" class="img-fluid" alt="">
                         <div class="media-body">
-                            <h4>سفارش با موفقیت انجام شد در تاریخ دوشنبه 15 دی 1401 تحویل داده خواهد شد</h4>
-                            <h6 class="content-color">5 دی 1401</h6>
+                            <h4> شماره تراکنش : {{$item->transactionNo}}</h4>
+                            <h6 class="content-color">{{\Morilog\Jalali\CalendarUtils::strftime('Y-m-d',strtotime(substr($item->created_at,0,10))) }} {{substr($item->created_at,10,20)}}</h6>
+                            @if($item->paystatus == 1)
+                            <span class="text-success"><i class="fa fa-check text-success"></i> تراکنش موفق </span>
+                            @else
+                                <span class="text-danger"><i class="fa fa-times text-danger"></i> تراکنش نا موفق </span>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="item order">
-                    <div class="media">
-                        <img src="assets/images/notification/3.jpg" class="img-fluid" alt="">
-                        <div class="media-body">
-                            <h4>ما کوپن داریم اکنون جمع آوری کنید و موارد اضافی را ذخیره کنید !!!</h4>
-                            <h6 class="content-color">5 دی 1401</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="item payment">
+                    @endforeach
+                @endif
+                <div class="item offers">
                     <div class="media">
                         <img src="assets/images/notification/4.jpg" class="img-fluid" alt="">
                         <div class="media-body">
-                            <h4>پرداخت ناموفق. می‌توانید دوباره در بخش‌های سفارش پرداخت کنید.</h4>
+                            <h4>تخفیف</h4>
                             <h6 class="content-color">5 دی 1401</h6>
                         </div>
                     </div>
                 </div>
-                <div class="item payment">
+                    @if($OrderData)
+                        @foreach($OrderData as $item)
+                            @if($item->paystatus == 1)
+                            <div class="item payment">
                     <div class="media">
                         <img src="assets/images/notification/5.jpg" class="img-fluid" alt="">
                         <div class="media-body">
-                            <h4>فروش ویژه روز برند!! عجله کنید، پیشنهاد مدت محدود!</h4>
-                            <h6 class="content-color">5 دی 1401</h6>
+                            <h4>{{number_format($item->price)}} تومان </h4>
+                            <h6 class="content-color">{{\Morilog\Jalali\CalendarUtils::strftime('Y-m-d',strtotime(substr($item->created_at,0,10))) }} {{substr($item->created_at,10,20)}}</h6>
+                                <span class="text-success"><i class="fa fa-check text-success"></i> تراکنش موفق </span>
                         </div>
                     </div>
                 </div>
-                <div class="item offers">
+                            @endif
+
+                        @endforeach
+                    @endif
+
+                    @if($OrderData)
+                        @foreach($OrderData as $item)
+                            @if($item->paystatus == 2)
+
+                            <div class="item return">
                     <div class="media">
                         <img src="assets/images/notification/6.jpg" class="img-fluid" alt="">
                         <div class="media-body">
-                            <h4>سفارش شما به موقع تحویل داده می شود. برای هر گونه کمک بیشتر لطفا با ما تماس بگیرید. </h4>
-                            <h6 class="content-color">5 دی 1401</h6>
+                            <h4>{{number_format($item->price)}} تومان </h4>
+                            <h6 class="content-color">{{\Morilog\Jalali\CalendarUtils::strftime('Y-m-d',strtotime(substr($item->created_at,0,10))) }} {{substr($item->created_at,10,20)}}</h6>
+                                <span class="text-danger"><i class="fa fa-times text-danger"></i> تراکنش نا موفق </span>
                         </div>
                     </div>
                 </div>
-                <div class="item order">
-                    <div class="media">
-                        <img src="assets/images/notification/3.jpg" class="img-fluid" alt="">
-                        <div class="media-body">
-                            <h4>ما کوپن داریم اکنون جمع آوری کنید و موارد اضافی را ذخیره کنید !!!</h4>
-                            <h6 class="content-color">5 دی 1401</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="item payment">
-                    <div class="media">
-                        <img src="assets/images/notification/4.jpg" class="img-fluid" alt="">
-                        <div class="media-body">
-                            <h4>پرداخت ناموفق. می‌توانید دوباره در بخش‌های سفارش پرداخت کنید.</h4>
-                            <h6 class="content-color">5 دی 1401</h6>
-                        </div>
-                    </div>
-                </div>
+                            @endif
+                        @endforeach
+                    @endif
+
             </div>
         </div>
     </section>
